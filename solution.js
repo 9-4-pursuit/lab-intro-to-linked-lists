@@ -7,6 +7,26 @@ class Node {
 }
 }
 
+class LinkedList {
+  constructor(head = null) {
+    this.head = head;
+  }
+
+  insert()
+  size()
+  delete()
+  getFirst()
+  getLast()
+  search()
+  getKthToLast()
+  isEmpty()
+  
+  clear() {
+
+  }
+  containsDuplicates()
+}
+
 
 module.exports = {
   Node,
