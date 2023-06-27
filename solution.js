@@ -71,7 +71,7 @@ class LinkedList {
         }
         let currentNode = this.head;
         let count = 1;
-        while (count < position) {
+        while (count < position - 1) {
           currentNode = currentNode.next;
           count++;
         }
@@ -149,7 +149,7 @@ for (let i = 1; i < nums.length; i++) {
   numsHead = currentNode;
 }
 
-console.log()
+console.log(list.delete(3), list.getKth(3))
 
 
 module.exports = {
