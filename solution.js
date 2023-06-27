@@ -12,22 +12,10 @@ class LinkedList {
     this.head = head;
   }
 
-  insert(value, position) {
+  insert(value) {
     let newNode = new Node(value);
-    if (position === 1) {
-      newNode.next = this.head;
-      this.head = newNode;
-    } else {
-      let currentNode = this.head;
-      let count = 1;
-      while (currentNode) {
-        if (count + 1 === position) {
-          let temp = currentNode.next;
-          currentNode.next = newNode;
-          newNode.next = temp;
-        }
-      }
-    }
+    newNode.next = this.head;
+    this.head = newNode;
   }
 
   while (currentNode) {
