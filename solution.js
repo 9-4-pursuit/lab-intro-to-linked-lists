@@ -67,7 +67,7 @@ class LinkedList {
 
     getKth(position) {
         let currentNode = this.head;
-        let count = 0;
+        let count = 1;
         if (position === 1){
             return currentNode;
         } else {
@@ -77,8 +77,26 @@ class LinkedList {
                 }
                 count++;
                 currentNode = currentNode.next;
-            }
-        } 
+            };
+        };
+    };
+
+    getKthToLast(position){
+        let listSize = this.size();
+        let currentNode = this.head;
+        position = listSize - position;
+        let count = 1;
+        if (position === 1){
+            return currentNode;
+        } else {
+            while(currentNode.next != null){
+                if (count + 1 === position){
+                    return currentNode.next;
+                }
+                count++;
+                currentNode = currentNode.next;
+            };
+        }; 
     };
 
 };
