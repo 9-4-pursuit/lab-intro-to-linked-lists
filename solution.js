@@ -12,36 +12,36 @@ class LinkedList {
     this.head = head;
   }
 
-  insert()
-  size()
-  delete()
-  getFirst()
-  getLast()
-  search()
-  getKthToLast()
-  isEmpty()
+  insert(data) {
+    const newNode = new Node(data);
+
+    if (this.head === null) {
+      this.head = newNode;
+    } else {
+      let currentNode = this.head;
+      while (currentNode.next !== null) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = newNode;
+    }
+    console.log(`Inserted ${data} at the end of the linked list.`);
+  }
+
+
+  // size()
+  // delete()
+  // getFirst()
+  // getLast()
+  // search()
+  // getKthToLast()
+  // isEmpty()
 
   clear() {
     this.head = null;
   }
-  containsDuplicates()
+  // containsDuplicates()
 }
 
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
-
-const panagram = [
-  "The",
-  "quick",
-  "brown",
-  "fox",
-  "jumps",
-  "over",
-  "the",
-  "lazy",
-  "dog",
-];
-
-console.log(list
 
 
 module.exports = {
