@@ -99,6 +99,10 @@ class LinkedList {
         }; 
     };
 
+    isEmpty(){
+       return !this.head;
+    };
+
 };
 
 module.exports = {
