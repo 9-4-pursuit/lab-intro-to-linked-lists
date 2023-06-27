@@ -100,6 +100,7 @@ class LinkedList {
       if(count === position){
         return currentNode
       }
+      currentNode = currentNode.next
     }
   }
 
@@ -148,7 +149,7 @@ for (let i = 1; i < nums.length; i++) {
   numsHead = currentNode;
 }
 
-console.log(list.getKth(1),"test", list.getKthToLast(1))
+console.log(list.getKth(5),"test", list.getKthToLast(1))
 
 
 module.exports = {
