@@ -16,7 +16,7 @@ class LinkedList {
         let newNode = new Node(value);
         newNode.next = this.head;
         this.head = newNode;
-    }
+    };
 
     size(){
         let count = 0;
@@ -33,15 +33,21 @@ class LinkedList {
         if (currentNode.data === value){
             this.head = currentNode.next;
             return this.head;
-        }
+        };
         while (currentNode.next){
             if (currentNode.next.data === value){
                 currentNode.next = currentNode.next.next;
                 return this.head;
-            }
+            };
             currentNode = currentNode.next;
-        }
-    }
+        };
+    };
+
+    getFirst() {
+        return this.head;
+    };
+
+    
 };
 
 module.exports = {
