@@ -103,6 +103,11 @@ class LinkedList {
        return !this.head;
     };
 
+    clear() {
+        this.head = null;
+    };
+
+
 };
 
 module.exports = {
