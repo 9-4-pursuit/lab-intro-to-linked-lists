@@ -12,23 +12,27 @@ class LinkedList {
     this.head = head;
   }
 
-  insert(data) {
-    const newNode = new Node(data);
-
-    if (this.head === null) {
-      this.head = newNode;
+  insert(value) {
+    let newNode = new Node(value)
+    if (!this.head) {
+      this.head = newNode
     } else {
-      let currentNode = this.head;
-      while (currentNode.next !== null) {
-        currentNode = currentNode.next;
-      }
-      currentNode.next = newNode;
+      newNode.next = this.head
+      this.head = newNode
     }
-    console.log(`Inserted ${data} at the end of the linked list.`);
+    // console.log(`Inserted ${value} at the end of the linked list.`);
   }
 
-
-  // size()
+   size(){
+    let count = 0;
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      count++;
+      currentNode = currentNode.next;
+    }
+    return count;
+   }
+   
   // delete()
   // getFirst()
   // getLast()
