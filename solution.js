@@ -27,6 +27,21 @@ class LinkedList {
         };
         return count;
     };
+
+    delete(value) {
+        let currentNode = this.head;
+        if (currentNode.data === value){
+            this.head = currentNode.next;
+            return this.head;
+        }
+        while (currentNode.next){
+            if (currentNode.next.data === value){
+                currentNode.next = currentNode.next.next;
+                return this.head;
+            }
+            currentNode = currentNode.next;
+        }
+    }
 };
 
 module.exports = {
