@@ -64,7 +64,23 @@ class LinkedList {
             currentNode = currentNode.next;
         };
     };
-    
+
+    getKth(position) {
+        let currentNode = this.head;
+        let count = 0;
+        if (position === 1){
+            return currentNode;
+        } else {
+            while(currentNode.next != null){
+                if (count + 1 === position){
+                    return currentNode.next;
+                }
+                count++;
+                currentNode = currentNode.next;
+            }
+        } 
+    };
+
 };
 
 module.exports = {
