@@ -50,7 +50,7 @@ class LinkedList {
   }
 
   getFirst() {
-    this.head ? this.head : null
+    return this.head ? this.head : null
   }
 
   getLast() {
@@ -61,7 +61,7 @@ class LinkedList {
     return currentNode;
   }
 
-  search() {
+  search(position) {
 
   }
 
