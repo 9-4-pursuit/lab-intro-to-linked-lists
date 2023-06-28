@@ -86,17 +86,13 @@ class LinkedList {
         let currentNode = this.head;
         position = listSize - position;
         let count = 1;
-        if (position === 1){
-            return currentNode;
-        } else {
-            while(currentNode.next != null){
-                if (count + 1 === position){
-                    return currentNode.next;
-                }
-                count++;
-                currentNode = currentNode.next;
-            };
-        }; 
+        while(currentNode != null){
+            if (count === position){
+                return currentNode;
+            }
+            count++;
+            currentNode = currentNode.next;
+        };
     };
 
     isEmpty(){
