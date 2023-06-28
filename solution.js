@@ -106,9 +106,9 @@ class LinkedList {
 
   getKthToLast(kth) {
     let slow = this.head;
-    let fast = this.head;
+    let fast = this.head.next;
     for (let i = 0; i < kth; i++) {
-      fast = fast.next.next;
+      fast = fast.next
     }
     while (fast != null) {
       slow = slow.next;
@@ -149,7 +149,7 @@ for (let i = 1; i < nums.length; i++) {
   numsHead = currentNode;
 }
 
-console.log(list.delete(3), list.getKth(3))
+console.log(list.getKthToLast(8))
 
 
 module.exports = {
