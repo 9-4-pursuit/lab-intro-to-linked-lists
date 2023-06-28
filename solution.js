@@ -81,7 +81,7 @@ class LinkedList {
   }
 
   isEmpty() {
-
+    return !this.head ? true : false
   }
 
   clear() {
