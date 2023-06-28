@@ -109,9 +109,13 @@ getKthToLast(key) {
   return pointer;
 }
 
+isEmpty() {
+  return this.head === null;
+}
 
-
-
+clear() {
+  this.head = null;
+}
 
 
 
