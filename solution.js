@@ -47,6 +47,20 @@ class LinkedList {
     }
     return count;
   }
+
+  delete(value) {
+    //delete by value
+    let currentNode = this.head;
+    if (currentNode.data === value) {
+      this.head = currentNode.next;
+    } else {
+      while (currentNode.next.data != value && currentNode.next) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = currentNode.next.next;
+    }
+    return this.head;
+  }
 }
 
 
