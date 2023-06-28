@@ -70,8 +70,14 @@ class LinkedList {
     return currentNode;
   }
 
-  getKthToLast() {
-
+  getKthToLast(k) {
+    let count = 1;
+    let currentNode = this.head;
+    while (count < this.size() - k) {
+      count++;
+      currentNode = currentNode.next;
+    }
+    return currentNode;
   }
 
   isEmpty() {
