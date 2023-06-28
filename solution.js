@@ -54,35 +54,68 @@ getFirst() {
   return this.head
 }
 
+getLast() {
+  let currentNode = this.head 
+  while (currentNode.next != null) {
+      currentNode = currentNode.next
+  }
+  return currentNode
+}
+
+search(value) {
+  let currentNode = this.head
+  while (currentNode != null) {
+      if (currentNode.data === value) {
+          return currentNode
+          // return true 
+      }
+      currentNode = currentNode.next
+  }
+  return null;
+}
+
+
+getKth(k) {
+
+  let currentNode = this.head;
+  let count = 1;
+
+  while (currentNode) {
+    if (count === k) {
+      return currentNode;
+    }
+    currentNode = currentNode.next;
+    count++;
+  }
+}
+
+
+
+
+getKthToLast(key) {
+  if (key < 1) return null;
+  let pointer = this.head;
+  let pointer2 = this.head;
+  for (let i = 0; i < key; i++) {
+    if (!pointer2) {
+      return null;
+    }
+    pointer2 = pointer2.next;
+  }
+  while (pointer2.next) {
+    pointer2 = pointer2.next;
+    pointer = pointer.next;
+  }
+  return pointer;
+}
 
 
 
 
 
-  // getKthToLast(k) {
-  //   if (k < 1) {
-  //     throw new Error("Invalid value of k.");
-  //   }
 
-  //   let p1 = this.head;
-  //   let p2 = this.head;
 
-  //   // Move p1 k nodes ahead
-  //   for (let i = 0; i < k; i++) {
-  //     if (p1 === null) {
-  //       throw new Error("The list does not have k elements.");
-  //     }
-  //     p1 = p1.next;
-  //   }
 
-  //   // Move both pointers until p1 reaches the end
-  //   while (p1 !== null) {
-  //     p1 = p1.next;
-  //     p2 = p2.next;
-  //   }
-
-  //   return p2.data;
-  // }
 }
 
 module.exports = {
