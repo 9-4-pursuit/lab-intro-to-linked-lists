@@ -18,17 +18,6 @@ class LinkedList {
     this.head = newNode;
   }
 
-  while (currentNode) {
-    if ((count + 1) === position) {
-        let temp = currentNode.next
-        currentNode.next = newNode
-        newNode.next = temp
-        return this.head
-    }
-    currentNode = currentNode.next
-    count++
-}
-
   size() {
     let count = 0;
     let currentNode = this.head;
@@ -62,11 +51,23 @@ class LinkedList {
   }
 
   search(position) {
-
+    let count = 0;
+    let currentNode = this.head;
+    while (count - 1 < position) {
+      count++;
+      currentNode = currentNode.next;
+    }
+    return currentNode;
   }
 
-  getKth() {
-
+  getKth(k) {
+    let count = 1;
+    let currentNode = this.head;
+    while (count < k) {
+      count++;
+      currentNode = currentNode.next;
+    }
+    return currentNode;
   }
 
   getKthToLast() {
