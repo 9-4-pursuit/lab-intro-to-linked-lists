@@ -4,7 +4,7 @@ class Node {
   constructor(data, next) {
     this.data = data;
     this.next = null;
-}
+  }
 }
 
 class LinkedList {
@@ -14,12 +14,12 @@ class LinkedList {
   }
 
   insert(value) {
-    const newNode = new Node(value)
+    const newNode = new Node(value);
     if (!this.head) {
-      this.head = newNode
+      this.head = newNode;
     } else {
-      newNode.next = this.head
-      this.head = newNode
+      newNode.next = this.head;
+      this.head = newNode;
     }
     // console.log(`Inserted ${value} at the end of the linked list.`);
   }
@@ -37,7 +37,7 @@ class LinkedList {
   //   console.log(`Inserted ${data} at the end of the linked list.`);
   // }
 
-   size(){
+  size() {
     let count = 0;
     let currentNode = this.head;
     while (currentNode !== null) {
@@ -45,14 +45,15 @@ class LinkedList {
       currentNode = currentNode.next;
     }
     return count;
-   }
+  }
 
   delete(data) {
     let node = this.head;
     //lets start at the top of our node
     let counter = 0;
     //counter is here to keep track of our index of our data for deletion
-    while (node.data !== data && node.next) { // this while compares the data at index to the data we are looking to delete and it takes in the next index if it is not null
+    while (node.data !== data && node.next) {
+      // this while compares the data at index to the data we are looking to delete and it takes in the next index if it is not null
       counter++; //keeps incrementing
       node = node.next; // updates the node to the next node in the sequence -- keep moving through the loop
     } //outside the loop we want to move our node for deletion and set it to a variable
@@ -61,46 +62,59 @@ class LinkedList {
     //!re-initialize the link lists!
     // all linked lists are linked together -- only want to cut off this one.
     // if counter is the index of the found node -- that means counter is at 4 for example. want to stop right before it.
-    for (let i = 0; i < counter - 1; i++) 
-    //the -1 means we stop right before the done we want to delete.
-    // this loop is to loop through the entire list from before the foundNode value.
+    for (
+      let i = 0;
+      i < counter - 1;
+      i++ //the -1 means we stop right before the done we want to delete.
+    ) // this loop is to loop through the entire list from before the foundNode value.
     {
       node = node.next; //init the node
-      //adds to the linked list 
+      //adds to the linked list
       //this loop keeps going until right before the foundNode value all because of counter keeping track of the index of foundNode.
-      
     }
     node.next = foundNode.next;
     //takes the current node and drops the foundNode and connects to the next value
   }
-   getFirst(){
+  getFirst() {
     return this.head;
-   }
-
-   getLast(){
-    if (this.head == null){
-      return "Null list; no last element";
-   }
-   let currentNode = this.head;
-   while (currentNode.next !== null){
-    currentNode = currentNode.next;
-   }
-   return currentNode
   }
-   search(key){
-    if (this.head == null){
-      return "No elements in list; key not found"
+
+  getLast() {
+    if (this.head == null) {
+      return "Null list; no last element";
     }
     let currentNode = this.head;
-    while (currentNode){
-     if (currentNode.data === key) {
-      return currentNode;
+    while (currentNode.next !== null) {
+      currentNode = currentNode.next;
     }
-    currentNode = currentNode.next;
-   }
-   return "key not found in list.";
+    return currentNode;
   }
-  
+  search(key) {
+    if (this.head == null) {
+      return "No elements in list; key not found";
+    }
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.data === key) {
+        return currentNode;
+      }
+      currentNode = currentNode.next;
+    }
+    return "key not found in list.";
+  }
+  getKth(k) {
+    let currentNode = this.head;
+    for(let i = 1; i < (this.length-k); i++) {
+      if (currentNode) {
+        currentNode = currentNode.next;
+      }
+    }
+    if (currentNode) {
+      return currentNode;
+    }else {
+      return null;
+    }
+  }
   // getKthToLast()
   // isEmpty()
 
@@ -110,10 +124,7 @@ class LinkedList {
   // containsDuplicates()
 }
 
-
-
 module.exports = {
   Node,
   LinkedList,
 };
-
