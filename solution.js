@@ -88,8 +88,19 @@ class LinkedList {
    return currentNode
   }
    search(key){
-
+    if (this.head == null){
+      return "No elements in list; key not found"
+    }
+    let currentNode = this.head;
+    while (currentNode){
+     if (currentNode.data === key) {
+      return currentNode;
+    }
+    currentNode = currentNode.next;
    }
+   return "key not found in list.";
+  }
+  
   // getKthToLast()
   // isEmpty()
 
