@@ -115,8 +115,26 @@ class LinkedList {
       return null;
     }
   }
-  // getKthToLast()
-  // isEmpty()
+  getKthToLast(k) {
+    let currentNode = this.head;
+    for (let i = 1; i < (this.length-k); i++) {
+      if (currentNode) {
+        currentNode = currentNode.next;
+    }
+  }
+    if (currentNode) {
+      return currentNode;
+    } else {
+      return null;
+    }
+}
+  isEmpty(){
+    if (this.head == null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   clear() {
     this.head = null;
