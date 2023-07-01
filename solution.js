@@ -106,6 +106,10 @@ class LinkedList {
   isEmpty() {
     return this.head === null ? true : false;
   };
+
+  clear() {
+    this.head = null;
+  };
 }
 
 
