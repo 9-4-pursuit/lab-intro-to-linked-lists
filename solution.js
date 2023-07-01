@@ -102,6 +102,10 @@ class LinkedList {
       count++;
     };
   };
+
+  isEmpty() {
+    return this.head === null ? true : false;
+  };
 }
 
 
