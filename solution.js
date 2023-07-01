@@ -61,6 +61,10 @@ class LinkedList {
     }
     return this.head;
   }
+
+  getFirst() {
+    return this.head;
+  };
 }
 
 
