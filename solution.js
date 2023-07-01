@@ -91,6 +91,17 @@ class LinkedList {
     }
     return currentNode;
   }
+
+  getKthToLast(index) {
+    let currentNode = this.head;
+    let count = 1;
+    const newIndex = this.size() - index;
+    while(currentNode !== null) {
+      if (count === newIndex) return currentNode;
+      currentNode = currentNode.next;
+      count++;
+    };
+  };
 }
 
 
