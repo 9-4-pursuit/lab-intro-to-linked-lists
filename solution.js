@@ -110,6 +110,16 @@ class LinkedList {
   clear() {
     this.head = null;
   };
+
+  toArray() {
+    let currentNode = this.head;
+    const arr = [];
+    while (currentNode !== null) {
+      arr.push(currentNode.data);
+      currentNode = currentNode.next;
+    }
+    return arr;
+  }
 }
 
 
