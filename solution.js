@@ -65,10 +65,18 @@ class LinkedList {
   getFirst() {
     return this.head;
   };
-  
+
   getLast() {
     let currentNode = this.head;
     while (currentNode.next != null) {
+      currentNode = currentNode.next;
+    };
+    return currentNode;
+  };
+
+  search(key) {
+    let currentNode = this.head;
+    while (currentNode !== null && currentNode.data !== key) {
       currentNode = currentNode.next;
     };
     return currentNode;
