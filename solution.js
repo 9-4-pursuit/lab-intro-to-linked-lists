@@ -15,7 +15,7 @@ class LinkedList {
   constructor(head = null) {
     this.head = head;
   }
-  
+
   insert(value) {
     const newNode = new Node(value);
     if (!this.head) {
@@ -31,68 +31,73 @@ class LinkedList {
 
   size() {
     let count = 0;
-    let currentNode = this.head
-    while (currentNode != null) {
-        count++
-        currentNode = currentNode.next
-      }
-      
-      return count;
-    };
-    
-    delete(key) {
-      if (!this.head) {
-        return;
-      }
-    
-      if (this.head.data === key) {
-        this.head = this.head.next;
-        return;
-      }
-      
-      let currentNode = this.head;
-      let previousNode = null;
-      
-      while (currentNode && currentNode.data !== key) {
-        previousNode = currentNode;
-        currentNode = currentNode.next;
-      }
-      
-      previousNode.next = currentNode.next;
-    }
-    
-    getLast() {
-      return this.head;
-    }
-    
-    getFirst() {
-        let currentNode = this.head 
-        while (currentNode.next != null) {
-            currentNode = currentNode.next
-        }
-        return currentNode
-    }
-
-search(key) {
     let currentNode = this.head;
     while (currentNode != null) {
-        if (currentNode.data === key) {
-            return currentNode;
-        }
-        currentNode = currentNode.next;
+      count++;
+      currentNode = currentNode.next;
+    }
+
+    return count;
+  }
+
+  delete(key) {
+    if (!this.head) {
+      return;
+    }
+
+    if (this.head.data === key) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let currentNode = this.head;
+    let previousNode = null;
+
+    while (currentNode && currentNode.data !== key) {
+      previousNode = currentNode;
+      currentNode = currentNode.next;
+    }
+
+    previousNode.next = currentNode.next;
+  }
+
+  getLast() {
+    return this.head;
+  }
+
+  getFirst() {
+    let currentNode = this.head;
+    while (currentNode.next != null) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+
+  search(key) {
+    let currentNode = this.head;
+    while (currentNode != null) {
+      if (currentNode.data === key) {
+        return currentNode;
+      }
+      currentNode = currentNode.next;
     }
     return null;
-}
+  }
 
-clear() {
+  clear() {
     this.head = null;
+  }
+
+  isEmpty() {
+    if (!this.head) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
 }
-
-
-
-
-}
-
 
 
 module.exports = {
