@@ -120,6 +120,16 @@ class LinkedList {
     }
     return arr;
   }
+
+  containsDuplicates() {
+    const arr = this.toArray();
+    const set = new Set();
+    for (let num of arr) {
+      if (set.has(num)) return true;
+      else set.add(num);
+    }
+    return false;
+  }
 }
 
 
