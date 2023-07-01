@@ -24,19 +24,6 @@ class LinkedList {
     // console.log(`Inserted ${value} at the end of the linked list.`);
   }
 
-  // insert(data) {
-  //   const newNode = new Node(data);
-
-  //   if (this.head === null) {
-  //     this.head = newNode;
-  //     this.lastNode = newNode; // Update lastNode when inserting the first node
-  //   } else {
-  //     this.lastNode.next = newNode;
-  //     this.lastNode = newNode; // Update lastNode to the newly inserted node
-  //   }
-  //   console.log(`Inserted ${data} at the end of the linked list.`);
-  // }
-
   size() {
     let count = 0;
     let currentNode = this.head;
@@ -104,42 +91,76 @@ class LinkedList {
   }
   getKth(k) {
     let currentNode = this.head;
-    for(let i = 1; i < (this.length-k); i++) {
+    for (let i = 1; i < k; i++) {
       if (currentNode) {
         currentNode = currentNode.next;
       }
     }
     if (currentNode) {
       return currentNode;
-    }else {
+    } else {
       return null;
     }
   }
   getKthToLast(k) {
-    let currentNode = this.head;
-    for (let i = 1; i < (this.length-k); i++) {
-      if (currentNode) {
-        currentNode = currentNode.next;
+    if (k <= 1) {
+      return null; // Invalid value of k
     }
+  
+    let slow = this.head;
+    let fast = this.head;
+  
+    // Move the fast pointer k positions ahead
+    for (let i = 0; i < k; i++) {
+      if (fast === null) {
+        return null; // List size is less than k
+      }
+      fast = fast.next;
+    }
+  
+    // Move both pointers simultaneously until the fast pointer reaches the end
+    while (fast !== null) {
+      slow = slow.next;
+      fast = fast.next;
+    }
+  
+    return slow;
   }
-    if (currentNode) {
-      return currentNode;
-    } else {
-      return null;
-    }
-}
   isEmpty(){
-    if (this.head == null) {
-      return true;
-    } else {
-      return false;
-    }
+    return (this.head == null) 
   }
 
   clear() {
     this.head = null;
   }
-  // containsDuplicates()
+
+  convertArray() {
+    if (this.head == null) {
+      return [];
+    } else {
+      let thisNode = this.head;
+      const getArray = [];
+      while (thisNode) {
+        getArray.push(thisNode.data);
+        thisNode = thisNode.next;
+      }
+      return getArray;
+    }
+  }
+  containsDuplicates() {
+    const set = new Set();
+    let currentNode = this.head;
+  
+    while (currentNode) {
+      if (set.has(currentNode.data)) {
+        return true; // Found a duplicate
+      }
+      set.add(currentNode.data);
+      currentNode = currentNode.next;
+    }
+  
+    return false; // No duplicates found
+  }
 }
 
 module.exports = {
