@@ -89,11 +89,19 @@ class LinkedList {
   }
 
   toArray() {
-
+    let currentNode = this.head;
+    let array = [];
+    while (currentNode) {
+      array.push(currentNode.data);
+      currentNode = currentNode.next;
+    }
+    return array;
   }
 
   containsDuplicates() {
-
+    const array = this.toArray();
+    const set = new Set(array);
+    return array.length > set.size;
   }
 
 }
