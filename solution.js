@@ -102,30 +102,46 @@ class LinkedList {
       return null;
     }
   }
-  getKthToLast(k) {
-    if (k <= 1) {
-      return null; // Invalid value of k
-    }
+  // getKthToLast(k) {
+  //   if (k <= 1) {
+  //     return null; // Invalid value of k
+  //   }
   
-    let slow = this.head;
-    let fast = this.head;
+  //   let slow = this.head;
+  //   let fast = this.head;
+  //   console.log(slow, fast)
+  //   // this.head.next = //one ahead of slow -- fast will hit last slow is one behind.
   
-    // Move the fast pointer k positions ahead
-    for (let i = 0; i < k; i++) {
-      if (fast === null) {
-        return null; // List size is less than k
-      }
-      fast = fast.next;
-    }
+  //   // Move the fast pointer k positions ahead
+
+  //   for (let i = 0; i < k; i++) {
+  //     if (fast === null) {
+  //      throw new Error("The linked list has fewer than k nodes")  ; // throw an error if fast pointer is null
+  //     }
+  //     fast = fast.next;
+  //     // console.log(fast, fast.next);
+  //   }
   
-    // Move both pointers simultaneously until the fast pointer reaches the end
-    while (fast !== null) {
-      slow = slow.next;
-      fast = fast.next;
-    }
+  //   // Move both pointers simultaneously until the fast pointer reaches the end
+  //   while (fast !== null) { // the end.
+  //     // slow = slow.next;
+  //     //next after first
+  //     // fast = fast.next;//next after second ?
+  //   }
   
-    return slow;
-  }
+  //   return slow;
+  // }
+  getKthToLast(key) { // you used a key to get the last ok this makes sense
+    let currentNode = this.head; // used the current placeholder for the current
+    let size = this.size(); //this takes in the size of the list linked list ok
+
+    while (size - 1 > key) { // we want the current placeholder amount FROM LAST
+      // console.log(currentNode);
+      currentNode = currentNode.next; // reassign the current placeholder to the next to iterate
+      size--; //descending in the queue -- we queue fro the bottom up
+    };
+    return currentNode; // where and what
+  };
   isEmpty(){
     return (this.head == null) 
   }
@@ -134,7 +150,7 @@ class LinkedList {
     this.head = null;
   }
 
-  convertArray() {
+  toArray() {
     if (this.head == null) {
       return [];
     } else {
