@@ -117,6 +117,28 @@ clear() {
   this.head = null;
 }
 
+toArray() {
+  let arr = [];
+  let node = this.head;
+  while (node) {
+    arr.push(node.data);
+    node = node.next;
+  }
+  return arr;
+}
+
+containsDuplicates() {
+  let node = this.head;
+  let obj = {};
+  while (node) {
+    if (obj[node.data]) {
+      return true;
+    }
+    obj[node.data] = node.data;
+    node = node.next;
+  }
+  return false;
+}
 
 
 
