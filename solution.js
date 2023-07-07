@@ -79,7 +79,7 @@ class LinkedList {
     return null;
   }
 
-  getKthTolast(k) {
+  getKthToLast(k) {
     let currentNode = this.head;
     let count = 1;
     while (currentNode) {
