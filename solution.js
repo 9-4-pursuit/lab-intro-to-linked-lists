@@ -88,6 +88,51 @@ class LinkedList {
     this.head = null;
   }
 
+  getKth(index) {
+    const array = this.toArray();
+    array.unshift('placeholder');
+    if (index < 0 || index >= array.length) {
+      return null;
+    }
+    const data = array[index];
+    return this.search(data);
+  }
+  
+  getKthToLast(index) {
+    const array = this.toArray();
+    if (index < 0 || index >= array.length) {
+      return null;
+    }
+    const data = array[array.length - 1 - index];
+    return this.search(data);
+  }
+
+  toArray() {
+    let currentNode = this.head;
+    const array = [];
+
+    while (currentNode) {
+      array.unshift(currentNode.data);
+      currentNode = currentNode.next;
+    }
+
+    return array;
+  }
+
+  containsDuplicates() {
+    const seen = new Set();
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (seen.has(currentNode.data)) {
+        return true;
+      }
+      seen.add(currentNode.data);
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
+  
   isEmpty() {
     if (!this.head) {
       return true;
@@ -95,7 +140,6 @@ class LinkedList {
       return false;
     }
   }
-
 
 }
 
