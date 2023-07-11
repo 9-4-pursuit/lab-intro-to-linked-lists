@@ -36,12 +36,22 @@ class LinkedList {
     let size = this.count;
     return size;
   }
+  delete(key) {
+    // i want to loop thru the ll until the data inside the node matches the data given
+
+    let current = this.head;
+
+    if (current.data === key) {
+      this.head = null;
+    } else {
+      while (current.next.data !== key) {
+        current = current.next;
+      }
+      current.next = null;
+    }
+    this.count--;
+  }
 }
-// let node1 = new Node(20);
-// let ll = new LinkedList(node1);
-// ll.insert(10);
-// ll.insert(5);
-// console.log(node1, ll);
 
 module.exports = {
   Node,
