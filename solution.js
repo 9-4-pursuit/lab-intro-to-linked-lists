@@ -11,7 +11,11 @@ class Node {
 class LinkedList {
   constructor(head = null) {
     this.head = head;
-    this.count = 0;
+    if (!this.head) {
+      this.count = 0;
+    } else {
+      this.count = 1;
+    }
   }
 
   insert(data) {
@@ -28,7 +32,10 @@ class LinkedList {
     }
     this.count++;
   }
-  size() {}
+  size() {
+    let size = this.count;
+    return size;
+  }
 }
 // let node1 = new Node(20);
 // let ll = new LinkedList(node1);
