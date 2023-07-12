@@ -43,10 +43,20 @@ class LinkedList {
         currentNode.next = currentNode.next.next;
         return this.head;
       };
-      currentNode = currentNode.next;
     };
   };
-};
+      getFirst() {
+        return this.head
+      }
+
+      getLast() {
+        let currentNode = this.head;
+        while (currentNode.next !=null) {
+          currentNode = currentNode.next;
+        }
+      return currentNode
+    };
+  };
 
 module.exports = {
   Node,
