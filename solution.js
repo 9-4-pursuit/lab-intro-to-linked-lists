@@ -10,18 +10,15 @@ class Node {
 class LinkedList {
   constructor(head = null) {
     this.head = head;
+    this._size = 0;
   }
 
   insert(value) {
     //insert the value at the beginning on the list.
     let newNode = new Node(value);
-    if (!this.head) {
-      this.head = newNode;
-    } else {
-      newNode.next = this.head;
-      this.head = newNode;
-      // [newNode.next, this.head] = [this.head, newNode];
-    }
+    if (!this.head) this.head = newNode;
+    else [newNode.next, this.head] = [this.head, newNode];
+    this._size++;
   }
 
   insertAtLast(value) {
@@ -39,13 +36,7 @@ class LinkedList {
   }
 
   size() {
-    let count = 0;
-    let currentNode = this.head;
-    while (currentNode) {
-      count++;
-      currentNode = currentNode.next;
-    }
-    return count;
+    return this._size;
   }
 
   delete(value) {
@@ -59,6 +50,7 @@ class LinkedList {
       }
       currentNode.next = currentNode.next.next;
     }
+    this._size--;
     return this.head;
   }
 
@@ -104,7 +96,7 @@ class LinkedList {
   };
 
   isEmpty() {
-    return this.head === null ? true : false;
+    return !this.head;
   };
 
   clear() {
@@ -123,12 +115,8 @@ class LinkedList {
 
   containsDuplicates() {
     const arr = this.toArray();
-    const set = new Set();
-    for (let num of arr) {
-      if (set.has(num)) return true;
-      else set.add(num);
-    }
-    return false;
+    const set = new Set(arr);
+    return arr.length !== set.size;
   }
 }
 
