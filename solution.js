@@ -112,6 +112,20 @@ class LinkedList {
     };
     return arr;
   };
+
+  containsDuplicates() {
+    let currentNode = this.head;
+    let dataSet = new Set();
+    while (currentNode) {
+      if (dataSet.has(currentNode.data)) {
+        return true;
+      } else {
+        dataSet.add(currentNode.data)
+      };
+      currentNode = currentNode.next;
+    };
+    return false;
+  };
 };
 
 module.exports = {
