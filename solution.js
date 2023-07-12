@@ -45,29 +45,45 @@ class LinkedList {
       };
     };
   };
-      getFirst() {
-        return this.head
-      }
+  getFirst() {
+    return this.head
+  }
 
-      getLast() {
-        let currentNode = this.head;
-        while (currentNode.next !=null) {
-          currentNode = currentNode.next;
-        }
-      return currentNode
-    };
-
-    search(value) {
-      let currentNode = this.head
-      while(currentNode != null) {
-        if(currentNode.data === value) {
-          return currentNode
-        }
-        currentNode = currentNode.next
-      }
-    return null;
+  getLast() {
+    let currentNode = this.head;
+    while (currentNode.next != null) {
+      currentNode = currentNode.next;
     }
+    return currentNode
   };
+
+  search(value) {
+    let currentNode = this.head
+    while (currentNode != null) {
+      if (currentNode.data === value) {
+        return currentNode
+      }
+      currentNode = currentNode.next
+    }
+    return null;
+  };
+
+  getKth(position) {
+    let currentNode = this.head;
+    let count = 1;
+    if (position === 1) {
+      return currentNode;
+    } else {
+      while (currentNode.next != null) {
+        if (count + 1 === position) {
+          return currentNode.next;
+        }
+        count++;
+        currentNode = currentNode.next;
+      };
+    };
+  };
+};
 
 module.exports = {
   Node,
