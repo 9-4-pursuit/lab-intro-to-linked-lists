@@ -56,6 +56,17 @@ class LinkedList {
         }
       return currentNode
     };
+
+    search(value) {
+      let currentNode = this.head
+      while(currentNode != null) {
+        if(currentNode.data === value) {
+          return currentNode
+        }
+        currentNode = currentNode.next
+      }
+    return null;
+    }
   };
 
 module.exports = {
