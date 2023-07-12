@@ -97,10 +97,21 @@ class LinkedList {
 
   isEmpty() {
     return this.head === null;
-  }
+  };
+
   clear() {
     this.head = null;
-  }
+  };
+
+  toArray() {
+    let currentNode = this.head;
+    let arr = [];
+    while (currentNode) {
+      arr.push(currentNode.data);
+      currentNode = currentNode.next;
+    };
+    return arr;
+  };
 };
 
 module.exports = {
