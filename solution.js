@@ -94,6 +94,13 @@ class LinkedList {
       count++;
     };
   };
+
+  isEmpty() {
+    return this.head === null;
+  }
+  clear() {
+    this.head = null;
+  }
 };
 
 module.exports = {
