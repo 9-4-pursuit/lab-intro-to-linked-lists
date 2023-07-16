@@ -134,7 +134,7 @@ class LinkedList {
   };
 
   isEmpty() {
-    return this.head === null ? true : false
+    return !this.head
   };
 
   clear() {
