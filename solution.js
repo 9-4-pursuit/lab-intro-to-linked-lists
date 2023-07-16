@@ -41,7 +41,7 @@ class LinkedList{
       currentNode = currentNode.next;
       count++;
     }
-    //to skip
+    //to skip over/pop
     currentNode.next = currentNode.next.next;
   } 
   
@@ -77,11 +77,29 @@ class LinkedList{
   
 
   //retrieve kth element
-  getKth(){} 
+  getKth(k){
+let currentNode = this.head
+let count = 0
+while(currentNode < k){
+  count++
+  currentNode = currentNode.next
+}
+return currentNode
+  } 
   
 
   //retrieve kth from last element
-  getKthToLast(){}
+  getKthToLast(k){
+    let currentNode = this.head;
+    let size = this.size();
+
+    while (size - 1 > k) {
+      // console.log(currentNode);
+      currentNode = currentNode.next;
+      size--;
+    };
+    return currentNode;
+  }
   
 
   //check if list is empty
@@ -119,9 +137,22 @@ return this.array
   
 
   //check for duplicates - return true if contains duplicates, false if not
-  containsDuplicates(){}
+  containsDuplicates(data){
+let currentNode = this.head
+let array = []
+while(currentNode){
+  if(array.includes(currentNode.data)){
+
+    return true
+  } else {
+array.push(currentNode.data)
+currentNode = currentNode.next
+} 
+}
+return false
 }
 
+}
 
 module.exports = {
   Node,
