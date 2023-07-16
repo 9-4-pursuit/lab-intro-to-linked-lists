@@ -27,14 +27,22 @@ class LinkedList{
     let currentNode = this.head;
     while (currentNode){
       count++;
+      //how to iterate or traverse to the next
       currentNode = currentNode.next
     }
     return count
   }
   
   //by key
-  delete(){
-   
+  delete(key){
+    let currentNode = this.head;
+    let count = 0;
+    while (count < key - 1) {
+      currentNode = currentNode.next;
+      count++;
+    }
+    //to skip
+    currentNode.next = currentNode.next.next;
   } 
   
 
@@ -79,8 +87,17 @@ class LinkedList{
   //check if list is empty
 
   isEmpty(){
-   
-  
+//  if (this.head){
+//   return false
+//  } else {
+//   return true
+//  }
+//or
+if (this.size() == 0){
+  return true
+} else {
+  return false
+}
   }
   
 
@@ -90,7 +107,15 @@ class LinkedList{
   }
   
   //convert data from linked list to an array
-  toArray(){}
+  toArray(){
+let currentNode = this.head
+this.array = []
+while (currentNode) {
+  this.array.push(currentNode.data)
+  currentNode = currentNode.next
+}
+return this.array
+  }
   
 
   //check for duplicates - return true if contains duplicates, false if not
