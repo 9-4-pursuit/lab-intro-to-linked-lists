@@ -138,11 +138,7 @@ containsDuplicates(){
     }
     current = current.next;
   }
-  if(match.length > 0){
-    return true
-  }else {
-    return false
-  }
+ return match.length > 0 ? true : false
 }
  
 };
