@@ -87,25 +87,31 @@ class LinkedList {
     return currentNode
   }
 
-  // getKthToLast() {
-
-  // }
+  getKthToLast(kth) {
+    let count = 1;
+    let currentNode = this.head;
+    while (count < this.size() - kth) {
+      count++
+      currentNode = currentNode.next
+    }
+    return currentNode
+  }
 
   toArray() {
-    const currentNode = this.top
+    const currentNode = this.head
     const arr = [];
     while (currentNode) {
       arr.push(currentNode.data);
-      currentNode = currentNode.next
+      currentNode = currentNode.next;
     }
     return arr;
-
   }
 
-  // containsDuplicates() {
-
-  // }
- 
+  containsDuplicates() {
+    let arr = this.toArray();
+    let set = new Set(arr);
+    return arr.length !== set.size;
+  }
 };
 
 module.exports = {
