@@ -1,23 +1,9 @@
 const { nums, words } = require("./data/data.js");
 
-// const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0];
-
-// const panagram = [
-//   "The",
-//   "quick",
-//   "brown",
-//   "fox",
-//   "jumps",
-//   "over",
-//   "the",
-//   "lazy",
-//   "dog",
-// ];
-
 class Node {
-  constructor(data, next) {
+  constructor(data) {
     this.data = data;
-    this.next = next
+    this.next = null;
   }
 }
 
@@ -44,7 +30,7 @@ class LinkedList {
       }
       currentNode = currentNode.next
     }
-    return null;
+    //return null;
   }
 
   clear() {
@@ -62,6 +48,62 @@ class LinkedList {
     }
     return currentNode 
   }
+
+  // insertAtFront(value) {
+  //   let newNode = new Node(value)
+  //   newNode.next = this.head
+  //   this.head = newNode
+  // }
+
+  insert(value, position) {
+    let newNode = new Node(value)
+    let currentNode = this.head
+    let count = 1
+
+    while (currentNode) {
+      if ((count + 1) === position) {
+        let temp = currentNode.next
+        currentNode.next = newNode
+        newNode.next = temp
+        return this.head
+      }
+
+      currentNode = currentNode.next
+      count++
+    } 
+  }
+
+  isEmpty() {
+    return this.head === null;
+  }//THEORIZED
+
+  delete(value) {
+    return this.value = null;
+  }//THEORIZED
+
+  // getKth() {
+
+  // }
+
+  // getKthToLast() {
+
+  // }
+
+  toArray() {
+    const currentNode = this.top
+    const arr = [];
+    while (currentNode) {
+      arr.push(currentNode.data);
+      currentNode = currentNode.next
+    }
+    return arr;
+
+  }
+
+  // containsDuplicates() {
+
+  // }
+ 
 };
 
 module.exports = {
