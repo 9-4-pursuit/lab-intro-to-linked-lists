@@ -1,9 +1,9 @@
 const { nums, words } = require("./data/data.js");
 
 class Node {
-  constructor(data) {
+  constructor(data, next) {
     this.data = data;
-    this.next = null;
+    this.next = next;
   }
 }
 
@@ -49,28 +49,10 @@ class LinkedList {
     return currentNode 
   }
 
-  // insertAtFront(value) {
-  //   let newNode = new Node(value)
-  //   newNode.next = this.head
-  //   this.head = newNode
-  // }
-
-  insert(value, position) {
+  insert(value) {
     let newNode = new Node(value)
-    let currentNode = this.head
-    let count = 1
-
-    while (currentNode) {
-      if ((count + 1) === position) {
-        let temp = currentNode.next
-        currentNode.next = newNode
-        newNode.next = temp
-        return this.head
-      }
-
-      currentNode = currentNode.next
-      count++
-    } 
+    newNode.next = this.head;
+    this.head = newNode;
   }
 
   isEmpty() {
