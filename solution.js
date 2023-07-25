@@ -59,13 +59,33 @@ class LinkedList {
     return this.head === null;
   }//THEORIZED
 
-  delete(value) {
-    return this.value = null;
-  }//THEORIZED
+  delete(key) {
 
-  // getKth() {
+    if (this.head.data === key) {
+      this.head = this.head.next;
+      return;
+    }
 
-  // }
+    let currentNode = this.head;
+    let prevNode = null;
+
+    while (currentNode && currentNode.data !== key) {
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+    }
+    prevNode.next = currentNode.next
+
+  }
+
+  getKth(kth) {
+    let count = 1;
+    let currentNode = this.head;
+    while (count < kth) {
+      count++
+      currentNode = currentNode.next
+    }
+    return currentNode
+  }
 
   // getKthToLast() {
 
